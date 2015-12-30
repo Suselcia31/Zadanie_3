@@ -1,0 +1,16 @@
+Zadanie 3 Praca z Selenium
+
+Informacje z zapisanego testu:
+
+open	https://www.google.pl/?gws_rd=ssl	
+type	id=lst-ib	BLStream Patronage
+open	https://www.google.pl/?gws_rd=ssl#q=BLStream+Patronage	BLStream Patronage
+open	https://pl-pl.facebook.com/BLStreamPatronage/	
+
+Informacje z log’a:
+
+•	[error] Timed out after 30000ms 
+•	[info] Executing: |open | https://pl-pl.facebook.com/BLStreamPatronage/ | | 
+•	[info] Test case failed 
+•	[info] Test suite completed: 1 played, 1 failed 
+
