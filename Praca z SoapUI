@@ -3,65 +3,401 @@ Suselcia31/Zadanie_3
 
 Test Suite 1
 
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <web:GetCitiesByCountry>
-         <!--Optional:-->
-         <web:CountryName>Poland</web:CountryName>
-      </web:GetCitiesByCountry>
-   </soapenv:Body>
-</soapenv:Envelope>
+Projekt w XML:
 
-Response:
-
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <soap:Body>
-      <GetCitiesByCountryResponse xmlns="http://www.webserviceX.NET">
-         <GetCitiesByCountryResult><![CDATA[<NewDataSet>
-  <Table>
-    <Country>Poland</Country>
-    <City>Gdansk-Rebiechowo</City>
-  </Table>
-  <Table>
-    <Country>Poland</Country>
-    <City>Krakow</City>
-  </Table>
-  <Table>
-    <Country>Poland</Country>
-    <City>Koszalin</City>
-  </Table>
-  <Table>
-    <Country>Poland</Country>
-    <City>Katowice</City>
-  </Table>
-  <Table>
-    <Country>Poland</Country>
-    <City>Poznan</City>
-  </Table>
-  <Table>
-    <Country>Poland</Country>
-    <City>Rzeszow-Jasionka</City>
-  </Table>
-  <Table>
-    <Country>Poland</Country>
-    <City>Szczecin</City>
-  </Table>
-  <Table>
-    <Country>Poland</Country>
-    <City>Warszawa-Okecie</City>
-  </Table>
-  <Table>
-    <Country>Poland</Country>
-    <City>Wroclaw Ii</City>
-  </Table>
-  <Table>
-    <Country>Poland</Country>
-    <City>Zielona Gora</City>
-  </Table>
-</NewDataSet>]]></GetCitiesByCountryResult>
-      </GetCitiesByCountryResponse>
-   </soap:Body>
+  <?xml version="1.0" encoding="UTF-8" ?> 
+- <con:soapui-project id="9b1bce39-ad95-4776-a273-3ac636f4d004" activeEnvironment="Default" name="Country" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings /> 
+- <con:interface xsi:type="con:WsdlInterface" id="bab4e89d-e0dd-483a-8233-65e4904f80f8" wsaVersion="NONE" name="GlobalWeatherSoap12" type="wsdl" bindingName="{http://www.webserviceX.NET}GlobalWeatherSoap12" soapVersion="1_2" anonymous="optional" definition="http://www.webservicex.net/globalweather.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <con:settings /> 
+  <con:definitionCache /> 
+- <con:endpoints>
+  <con:endpoint>http://www.webservicex.net/globalweather.asmx</con:endpoint> 
+  </con:endpoints>
+- <con:operation id="c8d9a02b-8717-4ea3-a296-008b12909971" isOneWay="false" action="http://www.webserviceX.NET/GetCitiesByCountry" name="GetCitiesByCountry" bindingOperationName="GetCitiesByCountry" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
+  <con:settings /> 
+- <con:call id="c6bc3f0d-ff86-4cdb-a09c-b0246f8e172a" name="Request 1">
+  <con:settings /> 
+  <con:encoding>UTF-8</con:encoding> 
+  <con:endpoint>http://www.webservicex.net/globalweather.asmx</con:endpoint> 
+- <con:request>
+- <![CDATA[ 
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webserviceX.NET">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <web:GetCitiesByCountry>\r
+         <!--Optional:-->\r
+         <web:CountryName>?</web:CountryName>\r
+      </web:GetCitiesByCountry>\r
+   </soap:Body>\r
 </soap:Envelope>
+  ]]> 
+  </con:request>
+  <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/GlobalWeatherSoap/GetCitiesByCountryRequest" /> 
+  </con:call>
+  </con:operation>
+- <con:operation id="fd6f307f-a3b1-435a-8794-6e2990eb9dff" isOneWay="false" action="http://www.webserviceX.NET/GetWeather" name="GetWeather" bindingOperationName="GetWeather" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
+  <con:settings /> 
+- <con:call id="fa2145a4-ae6c-4fdf-96a7-12c0c66603bd" name="Request 1">
+  <con:settings /> 
+  <con:encoding>UTF-8</con:encoding> 
+  <con:endpoint>http://www.webservicex.net/globalweather.asmx</con:endpoint> 
+- <con:request>
+- <![CDATA[ 
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webserviceX.NET">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <web:GetWeather>\r
+         <!--Optional:-->\r
+         <web:CityName>?</web:CityName>\r
+         <!--Optional:-->\r
+         <web:CountryName>?</web:CountryName>\r
+      </web:GetWeather>\r
+   </soap:Body>\r
+</soap:Envelope>
+  ]]> 
+  </con:request>
+  <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/GlobalWeatherSoap/GetWeatherRequest" /> 
+  </con:call>
+  </con:operation>
+  </con:interface>
+- <con:interface xsi:type="con:WsdlInterface" id="129deee8-3f98-4686-a3ee-38c08a070330" wsaVersion="NONE" name="GlobalWeatherSoap" type="wsdl" bindingName="{http://www.webserviceX.NET}GlobalWeatherSoap" soapVersion="1_1" anonymous="optional" definition="http://www.webservicex.net/globalweather.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <con:settings /> 
+- <con:definitionCache type="TEXT" rootPart="http://www.webservicex.net/globalweather.asmx?WSDL">
+- <con:part>
+  <con:url>http://www.webservicex.net/globalweather.asmx?WSDL</con:url> 
+- <con:content>
+- <![CDATA[ 
+<wsdl:definitions targetNamespace="http://www.webserviceX.NET" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.webserviceX.NET" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.webserviceX.NET">
+      <s:element name="GetWeather">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CityName" type="s:string"/>
+            <s:element minOccurs="0" maxOccurs="1" name="CountryName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetWeatherResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetWeatherResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCitiesByCountry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CountryName" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCitiesByCountryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCitiesByCountryResult" type="s:string"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string"/>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetWeatherSoapIn">
+    <wsdl:part name="parameters" element="tns:GetWeather"/>
+  </wsdl:message>
+  <wsdl:message name="GetWeatherSoapOut">
+    <wsdl:part name="parameters" element="tns:GetWeatherResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetCitiesByCountrySoapIn">
+    <wsdl:part name="parameters" element="tns:GetCitiesByCountry"/>
+  </wsdl:message>
+  <wsdl:message name="GetCitiesByCountrySoapOut">
+    <wsdl:part name="parameters" element="tns:GetCitiesByCountryResponse"/>
+  </wsdl:message>
+  <wsdl:message name="GetWeatherHttpGetIn">
+    <wsdl:part name="CityName" type="s:string"/>
+    <wsdl:part name="CountryName" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetWeatherHttpGetOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetCitiesByCountryHttpGetIn">
+    <wsdl:part name="CountryName" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetCitiesByCountryHttpGetOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetWeatherHttpPostIn">
+    <wsdl:part name="CityName" type="s:string"/>
+    <wsdl:part name="CountryName" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetWeatherHttpPostOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetCitiesByCountryHttpPostIn">
+    <wsdl:part name="CountryName" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="GetCitiesByCountryHttpPostOut">
+    <wsdl:part name="Body" element="tns:string"/>
+  </wsdl:message>
+  <wsdl:portType name="GlobalWeatherSoap">
+    <wsdl:operation name="GetWeather">
+      <wsdl:documentation>Get weather report for all major cities around the world.</wsdl:documentation>
+      <wsdl:input message="tns:GetWeatherSoapIn"/>
+      <wsdl:output message="tns:GetWeatherSoapOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesByCountry">
+      <wsdl:documentation>Get all major cities by country name(full / part).</wsdl:documentation>
+      <wsdl:input message="tns:GetCitiesByCountrySoapIn"/>
+      <wsdl:output message="tns:GetCitiesByCountrySoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="GlobalWeatherHttpGet">
+    <wsdl:operation name="GetWeather">
+      <wsdl:documentation>Get weather report for all major cities around the world.</wsdl:documentation>
+      <wsdl:input message="tns:GetWeatherHttpGetIn"/>
+      <wsdl:output message="tns:GetWeatherHttpGetOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesByCountry">
+      <wsdl:documentation>Get all major cities by country name(full / part).</wsdl:documentation>
+      <wsdl:input message="tns:GetCitiesByCountryHttpGetIn"/>
+      <wsdl:output message="tns:GetCitiesByCountryHttpGetOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="GlobalWeatherHttpPost">
+    <wsdl:operation name="GetWeather">
+      <wsdl:documentation>Get weather report for all major cities around the world.</wsdl:documentation>
+      <wsdl:input message="tns:GetWeatherHttpPostIn"/>
+      <wsdl:output message="tns:GetWeatherHttpPostOut"/>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesByCountry">
+      <wsdl:documentation>Get all major cities by country name(full / part).</wsdl:documentation>
+      <wsdl:input message="tns:GetCitiesByCountryHttpPostIn"/>
+      <wsdl:output message="tns:GetCitiesByCountryHttpPostOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GlobalWeatherSoap" type="tns:GlobalWeatherSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetWeather">
+      <soap:operation soapAction="http://www.webserviceX.NET/GetWeather" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesByCountry">
+      <soap:operation soapAction="http://www.webserviceX.NET/GetCitiesByCountry" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GlobalWeatherSoap12" type="tns:GlobalWeatherSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetWeather">
+      <soap12:operation soapAction="http://www.webserviceX.NET/GetWeather" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesByCountry">
+      <soap12:operation soapAction="http://www.webserviceX.NET/GetCitiesByCountry" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GlobalWeatherHttpGet" type="tns:GlobalWeatherHttpGet">
+    <http:binding verb="GET"/>
+    <wsdl:operation name="GetWeather">
+      <http:operation location="/GetWeather"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesByCountry">
+      <http:operation location="/GetCitiesByCountry"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GlobalWeatherHttpPost" type="tns:GlobalWeatherHttpPost">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="GetWeather">
+      <http:operation location="/GetWeather"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitiesByCountry">
+      <http:operation location="/GetCitiesByCountry"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GlobalWeather">
+    <wsdl:port name="GlobalWeatherSoap" binding="tns:GlobalWeatherSoap">
+      <soap:address location="http://www.webservicex.net/globalweather.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="GlobalWeatherSoap12" binding="tns:GlobalWeatherSoap12">
+      <soap12:address location="http://www.webservicex.net/globalweather.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="GlobalWeatherHttpGet" binding="tns:GlobalWeatherHttpGet">
+      <http:address location="http://www.webservicex.net/globalweather.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="GlobalWeatherHttpPost" binding="tns:GlobalWeatherHttpPost">
+      <http:address location="http://www.webservicex.net/globalweather.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
+  ]]> 
+  </con:content>
+  <con:type>http://schemas.xmlsoap.org/wsdl/</con:type> 
+  </con:part>
+  </con:definitionCache>
+- <con:endpoints>
+  <con:endpoint>http://www.webservicex.net/globalweather.asmx</con:endpoint> 
+  </con:endpoints>
+- <con:operation id="1066f518-8ba6-4d76-b04f-73bd5ab8147f" isOneWay="false" action="http://www.webserviceX.NET/GetCitiesByCountry" name="GetCitiesByCountry" bindingOperationName="GetCitiesByCountry" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
+  <con:settings /> 
+- <con:call id="e7480ef0-78da-4621-acaa-77599830ce9b" name="Request 1">
+- <con:settings>
+  <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><xml-fragment/></con:setting> 
+  </con:settings>
+  <con:encoding>UTF-8</con:encoding> 
+  <con:endpoint>http://www.webservicex.net/globalweather.asmx</con:endpoint> 
+- <con:request>
+- <![CDATA[ 
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:GetCitiesByCountry>\r
+         <!--Optional:-->\r
+         <web:CountryName>${polska}</web:CountryName>\r
+      </web:GetCitiesByCountry>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>
+  ]]> 
+  </con:request>
+- <con:credentials>
+  <con:authType>No Authorization</con:authType> 
+  </con:credentials>
+  <con:jmsConfig JMSDeliveryMode="PERSISTENT" /> 
+  <con:jmsPropertyConfig /> 
+  <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/GetCitiesByCountry" /> 
+  <con:wsrmConfig version="1.2" /> 
+  </con:call>
+  </con:operation>
+- <con:operation id="6c7b076f-aaf7-4cde-bbac-7228c75c9f5a" isOneWay="false" action="http://www.webserviceX.NET/GetWeather" name="GetWeather" bindingOperationName="GetWeather" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional">
+  <con:settings /> 
+- <con:call id="4bd538ef-34b3-4251-92b3-1ef0ff128e9e" name="Request 1">
+  <con:settings /> 
+  <con:encoding>UTF-8</con:encoding> 
+  <con:endpoint>http://www.webservicex.net/globalweather.asmx</con:endpoint> 
+- <con:request>
+- <![CDATA[ 
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:GetWeather>\r
+         <!--Optional:-->\r
+         <web:CityName>?</web:CityName>\r
+         <!--Optional:-->\r
+         <web:CountryName>?</web:CountryName>\r
+      </web:GetWeather>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>
+  ]]> 
+  </con:request>
+  <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/GetWeather" /> 
+  </con:call>
+  </con:operation>
+  </con:interface>
+- <con:testSuite id="423adb34-adb1-49f7-9d41-19287abce56c" name="TestSuite 1">
+  <con:settings /> 
+  <con:runType>SEQUENTIAL</con:runType> 
+- <con:testCase id="528d793b-9c54-4a7e-8ab8-a6bd067615f9" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true">
+  <con:settings /> 
+- <con:testStep type="properties" name="Properties" id="e60d77a8-b850-4c48-8480-ed671fd4a826">
+  <con:settings /> 
+- <con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+- <con:properties>
+- <con:property>
+  <con:name>polska</con:name> 
+  <con:value>POLAND</con:value> 
+  </con:property>
+  </con:properties>
+  </con:config>
+  </con:testStep>
+- <con:testStep type="request" id="86903579-e111-4c9e-aed1-9c5b1a700d5f" name="GetCitiesByCountry - Request 1">
+  <con:settings /> 
+- <con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <con:interface>GlobalWeatherSoap</con:interface> 
+  <con:operation>GetCitiesByCountry</con:operation> 
+- <con:request name="GetCitiesByCountry - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType="" id="72d25929-38bd-41b4-ad5d-39fe083a7632">
+- <con:settings>
+  <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers"><xml-fragment/></con:setting> 
+  </con:settings>
+  <con:encoding>UTF-8</con:encoding> 
+  <con:endpoint>http://www.webservicex.net/globalweather.asmx</con:endpoint> 
+- <con:request>
+- <![CDATA[ 
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:GetCitiesByCountry>\r
+         <!--Optional:-->\r
+         <web:CountryName>${polska}</web:CountryName>\r
+      </web:GetCitiesByCountry>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>
+  ]]> 
+  </con:request>
+  <con:assertion type="SOAP Response" id="e10c27b4-7a89-4824-8b15-e10c3d6cdd8b" name="SOAP Response" /> 
+- <con:credentials>
+  <con:authType>No Authorization</con:authType> 
+  </con:credentials>
+  <con:jmsConfig JMSDeliveryMode="PERSISTENT" /> 
+  <con:jmsPropertyConfig /> 
+  <con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/GetCitiesByCountry" /> 
+  <con:wsrmConfig version="1.2" /> 
+  </con:request>
+  </con:config>
+  </con:testStep>
+  <con:properties /> 
+  </con:testCase>
+  <con:properties /> 
+  </con:testSuite>
+  <con:properties /> 
+  <con:wssContainer /> 
+  <con:oAuth2ProfileContainer /> 
+  <con:sensitiveInformation /> 
+  </con:soapui-project>
 
 
